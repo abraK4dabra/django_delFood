@@ -7,9 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{{ title|title }}</title>
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
+
     {% block css %} {% endblock %}
 </head>
 <body>
@@ -21,7 +19,6 @@
 
             <ul class="head">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
                     <a class="nav-link" href="{% url 'products:index' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
                 </li>
 
