@@ -6,19 +6,17 @@ from django.shortcuts import render
 
 
 def index(request):
-    # context = {
-    #     "title": "store",
-    # }
-    return render(request, "products/index.html") ##, context
+    context = {
+        "title": "store",
+    }
+    return render(request, "products/index.html", context)
 
 
 def products(request):
-    # context = {
-    #     "title": "каталог",
-    #     "categories": ProductCategory.objects.all(),
-    #     "products": Product.objects.all(),
-    # }
-    return render(request, "products/products.html")##, context
+    context = {
+        "title": "каталог",
+    }
+    return render(request, "products/products.html", context)
 
 
 # def login(request):

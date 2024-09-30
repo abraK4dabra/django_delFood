@@ -1,31 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <title>delFood</title>
-    <link rel="stylesheet" type="text/css" href="static/css/index.css">
-</head>
-<body>
-        <nav>
-            <h1>
-                delFood
-            </h1>        
-            
-            <ul class="head">
-                <li class="">Каталог</li>
-                <li class="">Корзина</li>
-                <li class="">Войти</li>
-            </ul>
-        </nav>
+{% extends 'products/base.html' %}
+{% load static %}
 
-    <hr>
-    
+{% block css %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
 
-    <div class="order">
-        <p>Доставка по всему городу от 499 руб</p>
-        <button class="btn-order">Заказать</button>
-    </div>
-
-</body>
-</html>
+{% block context %}
+<div class="order">
+    <p>Доставка по всему городу от 499 руб</p>
+    <button class="btn-order">Заказать</button>
+</div>
+{% endblock %}

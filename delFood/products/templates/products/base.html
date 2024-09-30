@@ -1,10 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{ title|title }}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    {% block css %} {% endblock %}
 </head>
 <body>
+<!-- Navigation -->
+    <nav>
+            <h1>
+                delFood
+            </h1>
+
+            <ul class="head">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
+                    <a class="nav-link" href="{% url 'products:index' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
+                </li>
+
+                <li class="">Корзина</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="auth/login.html">Войти <i class="fas fa-sign-in-alt"></i></a>
+               </li>
+            </ul>
+    </nav>
+
+    <hr>
+<!-- Page Content -->
+{% block context %}{% endblock %}
+{% block footer %}{% endblock %}
 
 </body>
 </html>
