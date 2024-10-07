@@ -9,39 +9,20 @@
 <section class="menu">
     <h1>Каталог</h1>
     <br>
-    {% for product in products %}
+
     <ul>
+        {% for product in products %}
+            <li class="prd-pizza">
 
-        <li class="prd-pizza">
+                <img src="media/{{ product.image }}">
+                    <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                    <span>{{ product.price }}</span><br>
+                <button>Добавить в корзину</button>
 
-            <img src="media/{{ product.image }}">
-                <h3>{{ product.name }}</h3>
-                    <p>{{ product.description }}</p>
-                <span>{{ product.price }}</span><br>
-            <button>Добавить в корзину</button>
-
-        </li>
-
-        <li class="prd-sushi">
-
-            <img src="png/sushi.png" alt="Sushi">
-                <h3>Суши</h3>
-                    <p>description</p>
-                <span>700₽</span><br>
-            <button>Добавить в корзину</button>
-
-        </li>
-
-        <li class="prd-burger">
-
-            <img src="png/burger.png" alt="Burger">
-                <h3>Бургер</h3>
-                    <p>description</p>
-                <span>600₽</span><br>
-            <button>Добавить в корзину</button>
-
-        </li>
+            </li>
+        {% endfor %}
     </ul>
-    {% endfor %}
+
 </section>
 {% endblock %}

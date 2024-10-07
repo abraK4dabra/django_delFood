@@ -12,25 +12,33 @@
 </head>
 <body>
 <!-- Navigation -->
-    <nav>
-            <h1>
-                delFood
-            </h1>
+<nav>
 
-            <ul class="head">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:index' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
-                </li>
+    <ul class="head">
+        <h1 class="nav-main">
+            <a class="nav-link" href="{% url 'index' %}">delFood</a>
+        </h1>
 
-                <li class="">Корзина</li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products:index' %}">Каталог</a>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
-               </li>
-            </ul>
-    </nav>
+        <!--        {% if baskets %}-->
+        <!--            <li class="nav-item">-->
+        <!--                <a class="nav-link" href="">Корзина</a>-->
+        <!--            </li>-->
+        <!--        {% else %}-->
+        <!--            <h4>Корзина пуста</h4>-->
+        <!--        {% endif %}-->
 
-    <hr>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+        </li>
+    </ul>
+
+</nav>
+
+<hr>
 <!-- Page Content -->
 {% block context %}{% endblock %}
 {% block footer %}{% endblock %}

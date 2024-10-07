@@ -8,6 +8,8 @@
 {% block context %}
 <div class="order">
     <p>Доставка по всему городу от 499 руб</p>
-    <button class="btn-order">Заказать</button>
+    <button class="btn-order">
+        <a href="{% url 'products:index' %}">Заказать</a>
+    </button>
 </div>
 {% endblock %}

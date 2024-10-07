@@ -18,8 +18,10 @@ def login(request):
             print(form.errors)
     else:
         form = UserLoginForm()
-    context = {"form": form}
-    return render(request, "users/auth.html", context)
+    context = {
+        "form": form,
+    }
+    return render(request, "users/login.html", context)
 
 
 def register(request):

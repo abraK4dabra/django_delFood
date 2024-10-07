@@ -23,7 +23,7 @@
             {{ form.password }}
         </div>
         <button type="submit">Войти</button>
-        <p class="message">Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+        <p class="message">Нет аккаунта? <a href="{% url 'users:register' %}">Зарегистрироваться</a></p>
     </form>
 </div>
 </body>
