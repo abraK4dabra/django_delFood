@@ -12,33 +12,47 @@
 </head>
 <body>
 <!-- Navigation -->
-<nav>
+<nav class="head">
 
-    <ul class="head">
-        <h1 class="nav-main">
+    <ul class="nav-main">
+        <li>
             <a class="nav-link" href="{% url 'index' %}">delFood</a>
-        </h1>
+        </li>
+    </ul>
+
+    <div class="nav-items">
 
         <li class="nav-item">
             <a class="nav-link" href="{% url 'products:index' %}">Каталог</a>
         </li>
 
-        <!--        {% if baskets %}-->
-        <!--            <li class="nav-item">-->
-        <!--                <a class="nav-link" href="">Корзина</a>-->
-        <!--            </li>-->
-        <!--        {% else %}-->
-        <!--            <h4>Корзина пуста</h4>-->
-        <!--        {% endif %}-->
-
+<!--        {% if baskets %}-->
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+            <a class="nav-link" href="{% url 'products:basket' %}">Корзина</a>
         </li>
-    </ul>
+<!--        {% else %}-->
+<!--        <h4>Корзина пуста</h4>-->
+<!--        {% endif %}-->
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:profile' %}">{{ user.username }}
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:logout' %}">Выйти <i class="fas fa-sign-in-alt"></i></a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
+        </li>
+        {% endif %}
+    </div>
 
 </nav>
 
-<hr>
+
 <!-- Page Content -->
 {% block context %}{% endblock %}
 {% block footer %}{% endblock %}

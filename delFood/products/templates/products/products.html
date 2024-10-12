@@ -12,15 +12,17 @@
 
     <ul>
         {% for product in products %}
-            <li class="prd-pizza">
+        <li class="prd-pizza">
 
-                <img src="media/{{ product.image }}">
-                    <h3>{{ product.name }}</h3>
-                        <p>{{ product.description }}</p>
-                    <span>{{ product.price }}</span><br>
-                <button>Добавить в корзину</button>
+            <img src="media/{{ product.image }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <span>{{ product.price }}</span><br>
+            <a href="{% url 'products:basket_add' product.id %}">
+                <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
+            </a>
 
-            </li>
+        </li>
         {% endfor %}
     </ul>
 

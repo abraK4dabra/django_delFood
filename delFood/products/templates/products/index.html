@@ -6,6 +6,30 @@
 {% endblock %}
 
 {% block context %}
+<div class="carousel">
+    <input type="radio" name="carousel" id="slide1" checked>
+    <input type="radio" name="carousel" id="slide2">
+    <input type="radio" name="carousel" id="slide3">
+
+    <div class="slides">
+        {% for product in products %}
+        <div class="slide">
+            <img src="media/{{ product.name }}">
+            <div class="caption">
+                <h5>{{ product.name }}</h5>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="controls">
+        <label for="slide1" class="control">&#8594;</label>
+        <label for="slide2" class="control">&#8594;</label>
+        <label for="slide3" class="control">&#8594;</label>
+    </div>
+</div>
+
 <div class="order">
     <p>Доставка по всему городу от 499 руб</p>
     <button class="btn-order">
