@@ -1,6 +1,12 @@
 body {
-    background-color: #b3b3b3;
+    background-color: #FFF8E7;
     margin: 0;
+}
+
+.catalog {
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 }
 
 .head {
@@ -8,7 +14,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: pink;
+    background-color: #FF6F61;
 }
 
 ul {
@@ -88,7 +94,7 @@ ul {
 }
 
 .menu li {
-    border: 3px solid #ff000071;
+    border: 1px solid #ff000071;
     border-radius: 10px;
     background-color: #fff;
     display: inline;
@@ -136,3 +142,45 @@ ul {
 .menu button:hover {
     background:  rgba(255, 0, 0, 0.615);
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-item .page-link {
+    display: block;
+    padding: 8px 16px;
+    color: #23364e;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-item.active .page-link,
+.page-item .page-link:hover {
+    background-color: #FF6F61;
+    border-color: #FF6F61;
+    color: white;
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+    pointer-events: none;
+    background-color: #f9f9f9;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 50px;
+}
+

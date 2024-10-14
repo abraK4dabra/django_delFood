@@ -1,5 +1,5 @@
 body {
-    background-color: #b3b3b3;
+    background-color: #FFF8E7;
     margin: 0;
 }
 
@@ -8,7 +8,7 @@ body {
     justify-content: space-between;
     align-items: center; 
     padding: 10px;
-    background-color: pink;
+    background-color: #FF6F61;
 }
 
 ul {
