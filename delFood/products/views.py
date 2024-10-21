@@ -15,10 +15,14 @@ def index(request):
 
 
 def baskets(request):
+    baskets = Basket.objects.filter(user=request.user)
+    total_sum = sum(b.sum() for b in baskets)
     context = {
         "title": "корзина",
+        'baskets': baskets,
+        'total_sum': total_sum
     }
-    return render(request, "products/index.html", context)
+    return render(request, "products/basket.html", context)
 
 
 @login_required
@@ -51,7 +55,7 @@ def products(request, category_id=None, page=1):
     else:
         filtered_products = Product.objects.all()
 
-    paginator = Paginator(filtered_products, 1)
+    paginator = Paginator(filtered_products, 3)
     products_paginator = paginator.page(page)
     context.update(
         {'products': products_paginator}

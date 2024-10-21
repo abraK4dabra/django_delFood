@@ -26,13 +26,10 @@
             <a class="nav-link" href="{% url 'products:index' %}">Каталог</a>
         </li>
 
-<!--        {% if baskets %}-->
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'products:basket' %}">Корзина</a>
+            <a class="nav-link" href="{% url 'products:baskets' %}">Корзина</a>
         </li>
-<!--        {% else %}-->
-<!--        <h4>Корзина пуста</h4>-->
-<!--        {% endif %}-->
+
 
         {% if user.is_authenticated %}
         <li class="nav-item">
