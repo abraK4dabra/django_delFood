@@ -6,28 +6,20 @@
 {% endblock %}
 
 {% block context %}
-<div class="carousel">
-    <input type="radio" name="carousel" id="slide1" checked>
-    <input type="radio" name="carousel" id="slide2">
-    <input type="radio" name="carousel" id="slide3">
 
-    <div class="slides">
-        {% for product in products %}
-        <div class="slide">
-            <img src="media/{{ product.name }}">
-            <div class="caption">
-                <h5>{{ product.name }}</h5>
-                <p>{{ product.description }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<div class="often-buy">
+    <h1>Покупают чаще всего:</h1>
 
-    <div class="controls">
-        <label for="slide1" class="control">&#8594;</label>
-        <label for="slide2" class="control">&#8594;</label>
-        <label for="slide3" class="control">&#8594;</label>
-    </div>
+    {% for c in categories_1 %}
+        <li class="OF-card">
+            <img src="/media/{{ c.image }}">
+                <h3> {{ c.name }} </h3>
+            <span>{{ product.price }}</span>
+            <a href="{% url 'products:basket_add' c.id %}">
+                <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
+            </a>
+        </li>
+    {% endfor %}
 </div>
 
 <div class="order">

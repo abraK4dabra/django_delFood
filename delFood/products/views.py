@@ -10,6 +10,7 @@ from django.core.paginator import Paginator
 def index(request):
     context = {
         "title": "delFood",
+        "categories_1": Product.objects.filter(quantity__gt=50)[:4],
     }
     return render(request, "products/index.html", context)
 
