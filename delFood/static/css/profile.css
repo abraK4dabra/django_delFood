@@ -1,186 +1,96 @@
-body {
-    background-color: #b3b3b3;
-    margin: 0;
-}
-
-.head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: pink;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.nav-main {
-    display: flex;
-    align-items: center;
-}
-
-.nav-main a {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 0;
-}
-
-.nav-main a::before,
-.nav-main a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    left: 0;
-}
-
-.nav-main a::before {
-    top: -2px;
-    background-color: #ff0000b3;
-}
-
-.nav-main a::after {
-    bottom: -2px;
-    background-color: #ff0000b3;
-}
-
-.nav-items {
-    display: flex;
-    margin-left: auto;
-}
-
-.nav-item {
-    display: flex;
-    color: #fff;
-    background-color: #ff0000b3;
-    border-radius: 10px;
-    padding: 8px 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
-}
-
-.nav-item:hover {
-    background-color: hsla(0, 100%, 50%, 0.8);
-}
-
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Контейнер для профиля */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 50px auto; /* Отцентрируем контейнер по горизонтали и зададим отступ сверху */
+    max-width: 600px;
+    margin-left: 50px;
 }
 
 /* Заголовок профиля */
 h4 {
-    color: #333;
-}
-
-/* Стили для изображения профиля */
-.img-thumbnail {
-    border-radius: 50%;
-}
-
-/* Стили формы */
-.form-group {
+    color: #C0392B; /* Основной цвет */
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+/* Аватар пользователя */
+.text-center img {
+    border-radius: 50%;
+    border: 2px solid #C0392B;
+    margin-bottom: 20px;
 }
 
-/* Кнопка сохранения */
-.btn-info {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Метки и поля формы */
+.form-group label {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+    padding-left: 5px; /* Добавляем отступ для меток */
+}
+
+.form-control {
+    border-radius: 4px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
     width: 100%;
+    background-color: #fff;
+}
+
+.form-control:focus {
+    border-color: #C0392B;
+    box-shadow: 0 0 4px rgba(192, 57, 43, 0.4);
+}
+
+/* Выбор изображения */
+.custom-file-label {
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.custom-file input[type="file"] {
+    display: none;
+}
+
+/* Кнопка "Сохранить" */
+.btn-info {
+    background-color: #C0392B;
+    border-color: #C0392B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    width: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-info:hover {
-    background-color: #0056b3;
+    background-color: #e74c3c;
+    border-color: #e74c3c;
 }
 
-/* Корзина */
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+/* Отступы для строк формы */
+.form-row {
+    margin-bottom: 15px;
+    padding-left: 5px; /* Добавляем отступ для строк формы */
 }
 
-.card-body {
-    padding: 15px;
+.form-row .col-lg-6,
+.form-row .col-lg-12 {
+    padding-right: 0;
+    padding-left: 0;
 }
 
-.card-title {
-    margin: 0;
-}
-
-.card-text {
-    color: #666;
-}
-
-/* Список товаров в корзине */
-.list-group-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: #f9f9f9;
-}
-
-.list-group-item.bg-light {
-    background-color: #f1f1f1;
-}
-
-/* Кнопка оформления */
-.btn-success {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-}
-
-/* Футер карточки */
-.card-footer {
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
-}
-
-.badge {
-    background-color: #6c757d;
+/* Дополнительные стили для пустого профиля */
+.empty-profile {
+    color: #888;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
 }

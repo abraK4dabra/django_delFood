@@ -2,30 +2,88 @@
 {% load static %}
 
 {% block css %}
-<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block context %}
+<!-- Раздел "Почему выбирают нас?" -->
+<section class="features">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="feature">
+                    <h1>Почему именно мы?</h1>
+                    <i class="fas fa-truck feature-icon"></i>
+                    <h3 class="feature-title">Быстрая доставка</h3>
+                    <p class="feature-text">Свежие блюда доставляются за 30 минут или меньше.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="feature">
+                    <i class="fas fa-star feature-icon"></i>
+                    <h3 class="feature-title">Высокое качество</h3>
+                    <p class="feature-text">Только свежие ингредиенты и тщательно приготовленные блюда.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="feature">
+                    <i class="fas fa-tag feature-icon"></i>
+                    <h3 class="feature-title">Привлекательные цены</h3>
+                    <p class="feature-text">Доступные цены и регулярные акции для наших клиентов.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="often-buy">
     <h1>Покупают чаще всего:</h1>
 
-    {% for c in categories_1 %}
-        <li class="OF-card">
-            <img src="/media/{{ c.image }}">
-                <h3> {{ c.name }} </h3>
-            <span>{{ product.price }}</span>
-            <a href="{% url 'products:basket_add' c.id %}">
-                <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
-            </a>
-        </li>
-    {% endfor %}
+    <ul class="product-list">
+        {% for c in categories_1 %}
+            <li class="OF-card">
+                <div class="card-img">
+                    <img src="/media/{{ c.image }}">
+                </div>
+                <div class="card-body">
+                    <h3>{{ c.name }}</h3>
+                    <p class="price">{{ product.price }}</p>
+                    <a href="{% url 'products:basket_add' c.id %}">
+                        <button type="button" class="cart-button">Добавить в корзину</button>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 
-<div class="order">
-    <p>Доставка по всему городу от 499 руб</p>
-    <button class="btn-order">
-        <a href="{% url 'products:index' %}">Заказать</a>
-    </button>
+<div class="testimonials">
+    <h2>Отзывы наших клиентов</h2>
+    <div class="testimonial-container">
+        <div class="testimonial">
+            <p>★★★★★</p>
+            <p>"Отличная еда и быстрая доставка! Рекомендую!"</p>
+            <p>- Иван Иванов</p>
+        </div>
+        <div class="testimonial">
+            <p>★★★★★</p>
+            <p>"Вкусно, быстро и недорого. Будем заказывать еще!"</p>
+            <p>- Мария Петрова</p>
+        </div>
+        <div class="testimonial">
+            <p>★★★★★</p>
+            <p>"Порадовало качество блюд и вежливое обслуживание."</p>
+            <p>- Сергей Сидоров</p>
+        </div>
+        <div class="order">
+            <p>Дополни и свой отзыв, сделав заказ!</p>
+                <button class="btn-order">
+            <a href="{% url 'products:index' %}">Заказать</a>
+                </button>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

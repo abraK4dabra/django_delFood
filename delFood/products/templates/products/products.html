@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/global.css'%}">
 <link href="{% static 'css/products.css'  %}" rel="stylesheet">
 {% endblock %}
 
 {% block context %}
     <h1 class="catalog">Каталог</h1>
-    <section class="menu">
-
+    <section class="menu-prd">
 
         <ul>
             {% for product in products %}

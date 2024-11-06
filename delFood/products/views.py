@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from products.models import ProductCategory, Product, Basket
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -41,9 +41,15 @@ def basket_add(request, product_id):
 
 
 def basket_delete(request, basket_id):
-    basket = Basket.objects.get(id=basket_id)
-    basket.delete()
-    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+    basket = get_object_or_404(Basket, id=basket_id)
+
+    if basket.quantity > 1:
+        basket.quantity -= 1
+        basket.save()
+    else:
+        basket.delete()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def products(request, category_id=None, page=1):
@@ -63,14 +69,6 @@ def products(request, category_id=None, page=1):
     )
 
     return render(request, "products/products.html", context)
-
-
-def food_carousel(request):
-    context = {
-        "title": "каталог",
-        "products": Product.objects.all()
-    }
-    return render(request, 'index.html', context)
 
 
 def login(request):

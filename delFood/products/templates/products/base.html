@@ -8,51 +8,72 @@
     <meta name="author" content="">
     <title>{{ title|title }}</title>
 
-    {% block css %} {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% endblock %}
 </head>
+
 <body>
 <!-- Navigation -->
-<nav class="head">
-
-    <ul class="nav-main">
-        <li>
-            <a class="nav-link" href="{% url 'index' %}">delFood</a>
-        </li>
-    </ul>
-
-    <div class="nav-items">
-
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'products:index' %}">Каталог</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'products:baskets' %}">Корзина</a>
-        </li>
-
-
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:profile' %}">{{ user.username }}
-                <i class="fas fa-user-circle"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:logout' %}">Выйти <i class="fas fa-sign-in-alt"></i></a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
-        </li>
-        {% endif %}
+<nav class="header">
+    <div class="logo">
+        <a href="{% url 'index' %}">delFood</a>
     </div>
 
+    <ul class="menu">
+        <li><a href="{% url 'products:index' %}">Каталог</a></li>
+        <li><a href="{% url 'products:baskets' %}">Корзина</a></li>
+
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'users:profile' %}">{{ user.username }}</a></li>
+        <li><a href="{% url 'users:logout' %}">Выйти</a></li>
+        {% else %}
+        <li><a href="{% url 'users:login' %}">Войти</a></li>
+        {% endif %}
+    </ul>
 </nav>
 
 
 <!-- Page Content -->
-{% block context %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block context %} {% endblock %}
+
+{% block footer %}
+<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="footer-logo">delFood</h2>
+                <p>Быстрая и качественная доставка свежей еды. <br>Вкусно, быстро, удобно!
+                </p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'products:index' %}">Меню</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h3>Контакты</h3>
+                <p>Телефон: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Email: <a href="mailto:info@company.com">info@company.com</a></p>
+                <p>Адрес: ул. Пушкина, 1, г. Рязань</p>
+            </div>
+        </div>
+
+        <div class="footer-social">
+            <a href="https://vk.com"> VK </a>
+            <a href="https://instagram.com"> Instagram </a>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2024 delFood. Все права защищены.</p>
+        </div>
+    </footer>
+{% endblock %}
 
 </body>
 </html>

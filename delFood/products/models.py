@@ -3,9 +3,6 @@ from users.models import User
 
 
 # Create your models here.
-# модель = таблица
-
-
 class ProductCategory(models.Model):
     name = models.CharField(max_length=64, unique=True)
     description = models.TextField(blank=True)
@@ -40,6 +37,7 @@ class Basket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
+    image = models.ImageField(upload_to='products_images', blank=True)
 
     def __str__(self):
         return f'Корзина для {self.user.username} | Продукт {self.product.name}'
