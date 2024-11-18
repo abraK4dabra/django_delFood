@@ -4,8 +4,8 @@ from users.models import User
 
 # Create your models here.
 class ProductCategory(models.Model):
-    name = models.CharField(max_length=64, unique=True)
-    description = models.TextField(blank=True)
+    name = models.CharField(max_length=64, unique=True, verbose_name="Название категории")
+    description = models.TextField(blank=True, verbose_name="Описание категории")
 
     def __str__(self):
         return self.name

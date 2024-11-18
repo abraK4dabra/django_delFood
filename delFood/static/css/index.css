@@ -1,30 +1,36 @@
-.features {
-    padding: 80px 0;
-    background-color: #fafafa;
+.row h1 {
+    font-size: 28px; 
+    font-weight: bold;
+    padding-top: 30px;
+    margin-bottom: 20px; 
+    text-align: center; 
+    line-height: 1.2; 
+    letter-spacing: 1.5px; 
+    text-transform: uppercase; /* Все буквы большие */
 }
 
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+.feature-inline {
+    display: inline-flex;
+    list-style-type: none;
+    padding: 0;
 }
 
-.feature-icon {
-    font-size: 48px;
-    color: #FF6F61;
-    margin-bottom: 10px;
+.feature li {
+    border-left: 1px solid black; 
+    margin-left: 50px;
+    padding-left: 50px;
+}
+
+.feature-inline > .col-sm-4:first-child .feature li {
+    border-left: none;
 }
 
 .feature-title {
-    margin-top: 0;
-    text-align: center;
+    color: #C0392B;
+    text-align: left;
 }
 
-.feature-text {
-    line-height: 1.5;
-    text-align: center;
-}
+
 
 /* Общие стили для секции часто покупаемого */
 .often-buy {

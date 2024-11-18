@@ -15,6 +15,12 @@ def index(request):
     return render(request, "products/index.html", context)
 
 
+def category_detail(request, id):
+    category = get_object_or_404(ProductCategory, id=id)
+    products = Product.objects.filter(category=category)
+    return render(request, 'products/category_detail.html', {'category': category, 'products': products})
+
+
 def baskets(request):
     baskets = Basket.objects.filter(user=request.user)
     total_sum = sum(b.sum() for b in baskets)

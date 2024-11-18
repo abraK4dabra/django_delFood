@@ -3,15 +3,18 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/global.css'%}">
-<link href="{% static 'css/products.css'  %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/products.css'%}">
 {% endblock %}
 
 {% block context %}
+
+<h1 style="text-align: center">Категория: {{ category.name }}</h1>
+
     <section class="menu-prd">
-        
+
         <ul class="category-menu">
             {% for category in categories %}
-                <li>
+                <li class="hub-menu">
                     <a href="{% url 'products:category_detail' category.id %}">
                         {{ category.name }}
                     </a>
@@ -19,9 +22,9 @@
             {% endfor %}
         </ul>
 
-
         <ul>
-            {% for product in products %}
+        {% for product in products %}
+
             <li class="prd-pizza">
 
                 <img src="/media/{{ product.image }}">
@@ -33,11 +36,12 @@
                 </a>
 
             </li>
-            {% endfor %}
+
+        {% endfor %}
         </ul>
     </section>
 
-    <nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item {% if not products.has_previous %} disabled {% endif %}">
                 <a class="page-link"
@@ -63,5 +67,5 @@
         </ul>
     </nav>
 
-
 {% endblock %}
+

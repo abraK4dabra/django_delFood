@@ -22,10 +22,11 @@
 
     <ul class="menu">
         <li><a href="{% url 'products:index' %}">Каталог</a></li>
-        <li><a href="{% url 'products:baskets' %}">Корзина</a></li>
 
         {% if user.is_authenticated %}
         <li><a href="{% url 'users:profile' %}">{{ user.username }}</a></li>
+        <li><a href="{% url 'products:baskets' %}">Корзина</a></li>
+
         <li><a href="{% url 'users:logout' %}">Выйти</a></li>
         {% else %}
         <li><a href="{% url 'users:login' %}">Войти</a></li>
@@ -39,40 +40,40 @@
 
 {% block footer %}
 <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h2 class="footer-logo">delFood</h2>
-                <p>Быстрая и качественная доставка свежей еды. <br>Вкусно, быстро, удобно!
-                </p>
-            </div>
-
-            <div class="footer-section links">
-                <h3>Навигация</h3>
-                <ul>
-                    <li><a href="{% url 'index' %}">Главная</a></li>
-                    <li><a href="{% url 'products:index' %}">Меню</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section contact">
-                <h3>Контакты</h3>
-                <p>Телефон: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-                <p>Email: <a href="mailto:info@company.com">info@company.com</a></p>
-                <p>Адрес: ул. Пушкина, 1, г. Рязань</p>
-            </div>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2 class="footer-logo">delFood</h2>
+            <p>Быстрая и качественная доставка свежей еды. <br>Вкусно, быстро, удобно!
+            </p>
         </div>
 
-        <div class="footer-social">
-            <a href="https://vk.com"> VK </a>
-            <a href="https://instagram.com"> Instagram </a>
+        <div class="footer-section links">
+            <h3>Навигация</h3>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'products:index' %}">Меню</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
         </div>
 
-        <div class="footer-copyright">
-            <p>&copy; 2024 delFood. Все права защищены.</p>
+        <div class="footer-section contact">
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:info@company.com">info@company.com</a></p>
+            <p>Адрес: ул. Пушкина, 1, г. Рязань</p>
         </div>
-    </footer>
+    </div>
+
+    <div class="footer-social">
+        <a href="https://vk.com"> VK </a>
+        <a href="https://instagram.com"> Instagram </a>
+    </div>
+
+    <div class="footer-copyright">
+        <p>&copy; 2024 delFood. Все права защищены.</p>
+    </div>
+</footer>
 {% endblock %}
 
 </body>
