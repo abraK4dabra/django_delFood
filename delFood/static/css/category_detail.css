@@ -1,0 +1,68 @@
+/* Контейнер для меню и списка категорий */
+.category-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.menu-prd {
+    flex: 3;
+}
+
+/* Стили для меню категорий */
+.category-menu-list {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f8f8f8;
+    width: 280px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для каждого пункта меню категорий */
+.category-menu-list .category-item {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* Стили для ссылок в меню категорий */
+.category-menu-list .category-link {
+    display: block;
+    padding: 16px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: #C0392B;
+    border: 2px solid #C0392B;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении на ссылку */
+.category-menu-list .category-link:hover {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при активном выборе категории */
+.category-menu-list .category-link:active {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+.category-menu-list .category-item:last-child {
+    border-bottom: none;
+}
+
+/* Эффект на фокусе */
+.category-menu-list .category-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.5);
+}
+
+

@@ -4,29 +4,17 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/global.css'%}">
 <link rel="stylesheet" href="{% static 'css/products.css'%}">
+<link rel="stylesheet" href="{% static 'css/category_detail.css'%}">
 {% endblock %}
 
 {% block context %}
-
 <h1 style="text-align: center">Категория: {{ category.name }}</h1>
 
+<div class="category-content">
     <section class="menu-prd">
-
-        <ul class="category-menu">
-            {% for category in categories %}
-                <li class="hub-menu">
-                    <a href="{% url 'products:category_detail' category.id %}">
-                        {{ category.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-
         <ul>
         {% for product in products %}
-
             <li class="prd-pizza">
-
                 <img src="/media/{{ product.image }}">
                 <h3>{{ product.name }}</h3>
                 <p>{{ product.description }}</p>
@@ -34,38 +22,41 @@
                 <a href="{% url 'products:basket_add' product.id %}">
                     <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
                 </a>
-
             </li>
-
         {% endfor %}
         </ul>
     </section>
 
+    <ul class="category-menu-list" style="padding-top:20px; padding-left:20px">
+        {% for category in categories %}
+            <li class="category-item">
+                <a href="{% url 'products:category_detail' category.id %}" class="category-link" style="text-align: center">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
 <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item {% if not products.has_previous %} disabled {% endif %}">
-                <a class="page-link"
-                   href="{% if products.has_previous %} {% url 'products:page' products.previous_page_number %}
-                   {% else %} # {% endif %}"
-                   tabindex="-1"
-                   aria-disabled="true">Предыдущая
-                </a>
-            </li>
-            {% for page in products.paginator.page_range %}
-
-            <li class="page-item">
-                <a class="page-link" href="{% url 'products:page' page %}">{{ page }}</a>
-            </li>
-
-            {% endfor %}
-            <li class="page-item {% if not products.has_next %} disabled {% endif %}">
-                <a class="page-link"
-                   href="{% if products.has_next %} {% url 'products:page' products.next_page_number %}
-                   {% else %} # {% endif %}">Следующая
-                </a>
-            </li>
-        </ul>
-    </nav>
-
+    <ul class="pagination justify-content-center">
+        <li class="page-item {% if not products.has_previous %} disabled {% endif %}">
+            <a class="page-link"
+               href="{% if products.has_previous %} {% url 'products:page' products.previous_page_number %} {% else %} # {% endif %}"
+               tabindex="-1"
+               aria-disabled="true">Предыдущая
+            </a>
+        </li>
+        {% for page in products.paginator.page_range %}
+        <li class="page-item">
+            <a class="page-link" href="{% url 'products:page' page %}">{{ page }}</a>
+        </li>
+        {% endfor %}
+        <li class="page-item {% if not products.has_next %} disabled {% endif %}">
+            <a class="page-link"
+               href="{% if products.has_next %} {% url 'products:page' products.next_page_number %} {% else %} # {% endif %}">Следующая
+            </a>
+        </li>
+    </ul>
+</nav>
 {% endblock %}
-

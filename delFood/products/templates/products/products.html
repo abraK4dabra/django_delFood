@@ -4,38 +4,38 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/global.css'%}">
 <link href="{% static 'css/products.css'  %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/category_detail.css'%}">
 {% endblock %}
 
 {% block context %}
-    <section class="menu-prd">
-        
-        <ul class="category-menu">
+
+    <div class="category-content">
+        <section class="menu-prd">
+            <ul>
+            {% for product in products %}
+                <li class="prd-pizza">
+                    <img src="/media/{{ product.image }}">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <span>{{ product.price }}</span><br>
+                    <a href="{% url 'products:basket_add' product.id %}">
+                        <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <ul class="category-menu-list" style="padding-top:100px; padding-left:20px">
             {% for category in categories %}
-                <li>
-                    <a href="{% url 'products:category_detail' category.id %}">
+                <li class="category-item">
+                    <a href="{% url 'products:category_detail' category.id %}" class="category-link" style="text-align: center">
                         {{ category.name }}
                     </a>
                 </li>
             {% endfor %}
         </ul>
-
-
-        <ul>
-            {% for product in products %}
-            <li class="prd-pizza">
-
-                <img src="/media/{{ product.image }}">
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.description }}</p>
-                <span>{{ product.price }}</span><br>
-                <a href="{% url 'products:basket_add' product.id %}">
-                    <button type="button" class="btn btn-outline-success">Добавить в корзину</button>
-                </a>
-
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
+    </div>
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
